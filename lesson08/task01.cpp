@@ -29,6 +29,6 @@ int main()
         {
             if (!(*(*(array + i) + j))) std::cout << "\n0";
         }
-    }      ;
-    return EXIT_SUCCESS;        
+    }     
+return EXIT_SUCCESS;        
 }
