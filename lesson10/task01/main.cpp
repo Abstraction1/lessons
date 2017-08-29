@@ -6,21 +6,38 @@
 
 #include <iostream>
 #include <cstddef>
-#include <ctime>
 #include <iterator>
-#include <algorithm>
 
-
-template <typename Iterator>
-void bubble_srt(Iterator first, Iterator last)
+template<typename T>
+void swp(T& a, T& b)
 {
+    T c(a);
+    a=b;
+    b=c;
+}
+
+template <typename Iterator, typename B>
+void bubble_srt(Iterator first, Iterator last, B& decreaseOrIncrease)
+{
+
+    auto next = first;
     while (first < --last)
     {
-        for (Iterator i = first; i < last; ++i)
+        for (auto i = first; i < last; ++i)
         {
-            if (*(i + 1) < *i)
+            if (decreaseOrIncrease)
             {
-                iter_swap()
+                if (*(i + 1) < *i)
+                {
+                    swp(*i, *(i+1));
+                }
+            }
+            else
+            {
+                if (*(i + 1) > *i)
+                {
+                    swp(*(i+1), *i);
+                }
             }
         }
     }
@@ -32,10 +49,8 @@ int main()
 
     const size_t size = 10;
     int array[size] = {4,7,2,8,9,0,1,2,10,22};
-
-    bubble_srt(std::begin(array), std::end(array));
-
-
+    bool decreaseOrIncrease = true;
+    bubble_srt(std::begin(array), std::end(array), decreaseOrIncrease);
 
     for (auto i = std::begin(array); i != std::end(array); ++i)
     {
