@@ -6,7 +6,8 @@ template <typename T, typename T1>
 auto avrg(T *m, const T1& size) ->double
 {
     double sum = 0;
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i)
+    {
         sum+=m[i];
     }
     return sum/size;
