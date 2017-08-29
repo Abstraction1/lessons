@@ -19,8 +19,6 @@ void swp(T& a, T& b)
 template <typename Iterator, typename B>
 void bubble_srt(Iterator first, Iterator last, B& decreaseOrIncrease)
 {
-
-    auto next = first;
     while (first < --last)
     {
         for (auto i = first; i < last; ++i)
