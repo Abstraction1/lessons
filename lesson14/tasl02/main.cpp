@@ -9,6 +9,7 @@ int main()
     int i = 0;
     char symb[100] = {"qwertasdfg"};
     char* s;
+
     while (m < n) {
         *(s+i) = *(symb+m);
         i++;m++;
