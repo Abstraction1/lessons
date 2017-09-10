@@ -1,27 +1,34 @@
 //Написать программу, которая осуществляет добавление строки или столбца в любое место двумерной матрицы по выбору пользователя.
 
 #include <iostream>
-#include "tmp.cpp"
-#include <algorithm>
 
-const int row = 3;	
-const int col = 5;	
-	
-int main() {	
-    const int random_value = 10;;	
-    
-    int arr[row][col];	
-    int* (arr_ptr)[col]; 
-	
-	auto it_begin = std::begin(arr);	
-	auto it_end = std::end(arr);
-    
-    std::for_each (std::begin(arr_ptr), std::end(arr_ptr), [&random_value](int _x) {
-            _x=randomizer(random_value);
-        }
-    );
+int main() {
+    const int x = 3;
+    const int y = 3;
         
-    drow (arr_ptr, row);
-	std::cout << std::endl; 
-	return 0;				
+    bool is_x_or_y = false;
+    int nmb = 1;
+    int arr[x][y];
+
+    for (int i = 0; i < x; ++i) {
+        for (int j = 0; j < y; ++j) {
+            arr[i][j] = rand() % 10;
+        }
+    }
+    
+    for (int i = 0; i < x; ++i) {
+        for (int j = 0; j < y; ++j) {
+            if(is_x_or_y) {
+                if(nmb == i) {
+                    std::cin>>arr[i][j];
+                }
+            }
+            else if(!is_x_or_y) {
+                if(nmb == j) {
+                    std::cin>>arr[i][j];;
+                }
+            }
+        }
+    }
+    return EXIT_SUCCESS;
 }
