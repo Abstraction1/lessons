@@ -30,47 +30,37 @@ void array::dicriment_size_array()
     element_array = _arr;
     length_array--;
 }
-
-array::array(int& _len)
+array::array(int _len)
 {
     length_array = _len;
-
     if (length_array > 0)
     {
         element_array = new int[length_array];
     }
 }
-array::array(array &obj)
-{
-
-}
 array::~array()
 {
     delete[] element_array;
 }
-
 int array::get_size()
 {
     return this->length_array;
 }
-void array::init(int elem, ...)
+
+void array::show()
 {
-    int count = 0;
-    int* ptr = &elem;
-
-    while (*ptr)
+    for (int i = 0; i < length_array; ++i)
     {
-        count++; ptr++;
+        std::cout << element_array[i] << ' ';
     }
+    std::cout << std::endl;
+}
 
-    if (length_array >= count)
+array &array::init_rnd()
+{
+    for (int i = 0; i < length_array; ++i)
     {
-        ptr = &elem;
-        for (int i = 0; i < count; ++i)
-        {
-            element_array[i] = *(ptr);
-            ptr++;
-        }
+        element_array[i] = rand() % 10;
     }
 }
 
@@ -86,8 +76,7 @@ array &array::operator =(const array &obj)
     }
     return *this;
 }
-array &array::operator +(const array &obj)
-{
+array &array::operator +(const array &obj) {
     for (int i = 0; i < length_array; ++i)
     {
         element_array[i] += obj.element_array[i];
@@ -102,12 +91,12 @@ array &array::operator -(const array &obj)
     }
     return *this;
 }
-array &array::operator ++()
+array &array::operator ++(int)
 {
     increment_size_array();
     return *this;
 }
-array &array::operator --()
+array &array::operator --(int)
 {
     dicriment_size_array();
     return *this;

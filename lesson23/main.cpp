@@ -2,24 +2,18 @@
 //Перегрузите операторы:
 //[ ], =, +, -,++ (добавление элемента в конец массива), -- (удаление элемента из конца массива).
 
-#include <iostream>
 #include "array.h"
 
-//void show(array& arr, const int& n)
-//{
-//    for (int i = 0; i < n; ++i) {
-//        std::cout << arr[i] << ' ';
-//    }
-//    std::cout << std::endl;
-//}
-
-int main(int argc, char *argv[])
+int main()
 {
-    int n = 5;
-    array arr(n);
+    array arr(10);
+    arr.init_rnd();
+    arr.show();
 
-    arr.init(2,4,6,7,8);
-
+    arr++;
+    arr.show();
+    arr--;
+    arr.show();
 
     return EXIT_SUCCESS;
 }

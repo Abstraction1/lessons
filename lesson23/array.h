@@ -1,6 +1,8 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
+#include <iostream>
+
 class array
 {
 private:
@@ -9,19 +11,19 @@ private:
     void increment_size_array();
     void dicriment_size_array();
 public:
-    array(int& len);
-    array(array& obj);
+    array(int _len);
     ~array();
 
     int get_size();
-    void init(int elem,...);
+    void show();
+    array& init_rnd();
 
     int& operator [](int interation_number);
     array& operator =(const array& obj);
     array& operator +(const array& obj);
     array& operator -(const array& obj);
-    array& operator ++();
-    array& operator --();
+    array& operator ++(int);
+    array& operator --(int);
 };
 
 #endif // ARRAY_H
