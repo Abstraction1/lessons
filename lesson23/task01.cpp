@@ -1,32 +1,62 @@
-//Создайте класс динамического массива, в котором реализована проверка выхода за границы массива.
-//Перегрузите операторы: [ ], =, +, -,++ (добавление элемента в конец массива), -- (удаление элемента из конца массива).
+#include <iostream>
 
-#include<iostream>
-
-class _array
+class array
 {
+private:
+    int len;
+    int* elem;
 public:
-    _array() : elem(0), size(0) {}
-
-    _array(int _size): size(_size) {
-        elem = new int[size];
-        for (int i = 0; i < size; ++i) {
-            elem[i] = 0;
+    array(int l)
+    {
+        len = l;
+        elem = new int[len];
+    }
+    void show()
+    {
+        for (int i = 0; i < len; ++i)
+        {
+            std::cout << *(elem + i) << ' ';
         }
     }
 
-
-    ~_array() {
-        delete [] elem;
+    int& operator [](int i)
+    {
+        return *(elem + i);
     }
 
-private:
-    int* elem;
-    int size;
+    void operator +(int i)
+    {
+    }
+
+    void operator -(int i)
+    {
+    }
+
+    int& operator ++(int i)
+    {
+        return *(--len + elem) = 10;
+    }
+
+    void operator --(int i)
+    {
+    }
+
+    void operator =(int i)
+    {
+    }
+
+    ~array()
+    {
+        delete[] elem;
+    }
 };
 
 int main(int argc, char *argv[])
 {
-    _array a(5);
-    return EXIT_SUCCESS;
+    array arr(10);
+
+    arr.show();
+    arr++;
+    arr.show();
+    return 0;
 }
