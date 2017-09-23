@@ -32,13 +32,14 @@ public:
     {
     }
 
-    int& operator ++(int i)
+    int& operator ++(int)
     {
-        return *(--len + elem) = 10;
+        return *(elem + (len - 1)) = 10;
     }
 
-    void operator --(int i)
+    int& operator --(int)
     {
+        return *(elem) = 10;
     }
 
     void operator =(int i)
@@ -54,9 +55,12 @@ public:
 int main(int argc, char *argv[])
 {
     array arr(10);
-
     arr.show();
     arr++;
+    std::cout << std::endl;
+    arr.show();
+    arr--;
+    std::cout << std::endl;
     arr.show();
     return 0;
 }
